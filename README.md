@@ -14,6 +14,10 @@ $ npm install -S express
 ```
 $ npm install -S body-parser
 ```
+* sequelize
+```
+$ npm install -S sequelize
+```
 
 # Tutorial Base
 * http://www.luiztools.com.br/categoria/desenvolvimento/nodejs/#3
