@@ -1,0 +1,24 @@
+{
+  "name": "nodemysql",
+  "version": "1.0.0",
+  "description": "exemplo de uso de node com mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nodemysql"
+  },
+  "keywords": [
+    "nodejs",
+    "mysql"
+  ],
+  "author": "alvescaio",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}
