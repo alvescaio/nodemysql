@@ -17,26 +17,34 @@ app.use('/', router);
 
 //Rota para listar clientes
 router.get('/clientes', (req, res) => {
-	execSQLQuery('SELECT * FROM clientes', res);
+	execSQLQuery('SELECT * FROM Clientes', res);
 });
 
 //Rota para listar cliente por ID
 router.get('/clientes/:id?', (req, res) =>{
 	let filter = '';
 	if(req.params.id) filter = ' WHERE id=' + parseInt(req.params.id);
-	execSQLQuery('SELECT * FROM clientes' + filter, res);
+	execSQLQuery('SELECT * FROM Clientes' + filter, res);
 });
 
 //Rota para excluir um cliente
 router.delete('/clientes/:id', (req, res) =>{
-    execSQLQuery('DELETE FROM clientes WHERE id=' + parseInt(req.params.id), res);
+    execSQLQuery('DELETE FROM Clientes WHERE id=' + parseInt(req.params.id), res);
 });
 
 //Rota para add cliente
 router.post('/clientes', (req, res) => {
+	const nome = req.body.nome.substring(0,100);
+	const cpf = req.body.cpf.substring(0, 11);
+	execSQLQuery(`INSERT INTO Clientes (Nome, CPF) VALUES ('${nome}','${cpf}')`, res);
+});
+
+//Rota para atualizar cliente
+router.patch('/clientes/:id', (req, res) => {
+	const id = parseInt(req.params.id);
 	const nome = req.body.nome.substring(0, 150);
 	const cpf = req.body.cpf.substring(0, 11);
-	execSQLQuery('INSERT INTO clientes(Nome, CPF) VALUES(`${nome}`,`${cpf}`)', res);
+	execSQLQuery(`UPDATE Clientes SET Nome = '${nome}', cpf='${cpf}' WHERE id=${id}`, res);
 });
 
 //inicia o servidor
